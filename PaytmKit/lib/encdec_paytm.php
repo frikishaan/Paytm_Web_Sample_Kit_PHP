@@ -29,11 +29,14 @@ function generateSalt_e($length) {
 	return $random;
 }
 
+// Imroved function
 function checkString_e($value) {
-	if ($value == 'null')
-		$value = '';
-	return $value;
-}
+     $myvalue = ltrim($value);
+     $myvalue = rtrim($myvalue);
+    if (in_array($myvalue, ['null', 'NULL']))
+         $myvalue = '';
+     return $myvalue;
+ }
 
 function getChecksumFromArray($arrayList, $key, $sort=1) {
 	if ($sort != 0) {
